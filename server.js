@@ -93,6 +93,6 @@ function getFile(path, response, mimeType) {
 	});
 }
 
-var server = app.listen(8080, function(){
+var server = app.listen(process.env.PORT || 8888, function(){
 	console.log("running...");
 });
