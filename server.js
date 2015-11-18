@@ -1,7 +1,10 @@
-express = require('express');
-util = require('util');
-fs = require('fs');
-path = require('path');
+var express = require('express');
+var util = require('util');
+var fs = require('fs');
+var path = require('path');
+var url = require('url');
+var http = require('http');
+
 
 app = express();
 app.get('/*\.*', function(req, res) {
@@ -50,17 +53,35 @@ app.get('/', function(req, res){
 	}) 
 });
 app.get('/debug', function(req, res){
-	var filePath = __dirname + '/' + 'debug/debug.html';
-	var mimeType = 'text/html';
-	fs.exists(filePath, function(exists){
-		if(exists) {
-			console.log("hello")
-			getFile(filePath, res, mimeType);
-		} else {
-			res.writeHead(500);
-			res.end();
-		}
-	}) 
+	var externalUrl = url.parse(decodeURIComponent(req.query.reqUrl));
+	var data = req.query.reqData;
+	var options = {
+	  host: externalUrl.hostname,
+	  port: externalUrl.port,
+	  path: externalUrl.path,
+	  method: req.query.reqMethod
+	};
+	console.log("path name : " + externalUrl.path);
+	if(options['host']){
+		getDataFromUrl(options, data, res);
+	} else {
+		// var url = decodeURIComponent(req.query.reqUrl);
+		// var method = req.query.reqMethod;
+		// var data = req.query.reqData;
+		// console.log(method+" m " + data + " d " + url);
+
+		var filePath = __dirname + '/' + 'debug/debug.html';
+		var mimeType = 'text/html';
+		fs.exists(filePath, function(exists){
+			if(exists) {
+				console.log("hello")
+				getFile(filePath, res, mimeType);
+			} else {
+				res.writeHead(500);
+				res.end();
+			}
+		});
+	}
 });
 
 app.post('/hello', function(req, res) {
@@ -92,6 +113,40 @@ function getFile(path, response, mimeType) {
 		}
 	});
 }
+
+function getDataFromUrl(options, reqData, parentRes){
+	// var options = {
+	//   host: 'www.google.com',
+	//   port: 80,
+	//   path: '/upload',
+	//   method: 'POST'
+	// };
+
+	var req = http.request(options, function(res) {
+	  //console.log('STATUS: ' + res.statusCode);
+	  console.log(JSON.stringify(res.headers));
+	  res.setEncoding('utf8');
+	  parentRes.writeHead(res.statusCode , res.headers);
+	  res.on('data', function (chunk) {
+	  	//console.log("data 1234" + chunk);
+	    parentRes.write(chunk);
+	  });
+	  res.on('end',function(){
+	  	parentRes.end();
+	  });
+	});
+
+	req.on('error', function(e) {
+	  console.log('problem with request: ' + e.message);
+	});
+
+	// write data to request body
+	req.write(reqData);
+	req.end();
+}
+
+// function successHandlerForGetDataFromUrl(data, response) {
+// }
 
 var server = app.listen(process.env.PORT || 8888, function(){
 	console.log("running...");

@@ -7,11 +7,14 @@ function httpRequestAsync(pUrl, pMethod, pData, pCallback) {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             pCallback(xmlHttp);
     }
-    xmlHttp.open(pMethod, pUrl, true); // true for asynchronous 
-    xmlHttp.send(pData);
+    var url = window.location.href+'?reqUrl='+encodeURIComponent(pUrl) + '&reqMethod='+ pMethod +'&reqData='+pData;
+    xmlHttp.open('GET', url, true); // true for asynchronous 
+    xmlHttp.send();
 }
 function resposeHandler(response) {
 	var textArea = document.getElementsByName('responseData');
+	console.log(document.responseText = response);
+
 	textArea[0].value = response.responseText;
 
 }
