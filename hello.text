@@ -1,0 +1,120 @@
+    1  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    2  brew get node
+    3  brew install node
+    4  nide
+    5  node
+    6  clear
+    7  npm -v
+    8  node -v
+    9  pwd
+   10  ls
+   11  mkdir Projects
+   12  cd Projects/
+   13  mkdir NodeJS
+   14  cd NodeJS/
+   15  brew install sublime
+   16  brew install sublime-text
+   17  brew cast install sublime-text3
+   18  brew cask install sublime-text3
+   19  pwd
+   20  cd Projects/NodeJS/
+   21  node practice1.js 
+   22  node practice1.js 
+   23  java Range
+   24  ls
+   25  javac GoldCoins.java 
+   26  javac GoldCoins.java 
+   27  java GoldCoins
+   28  javac GoldCoins.java 
+   29  javac GoldCoins.java 
+   30  java GoldCoins
+   31  javac GoldCoins.java 
+   32  javac GoldCoins.java 
+   33  javac GoldCoins.java 
+   34  java GoldCoins
+   35  javac GoldCoins.java 
+   36  java GoldCoins
+   37  node practice1.js 
+   38  node practice1.js 
+   39  node createServer.js 
+   40  brew installeclipse
+   41  brew install eclipse
+   42  sudo xcodebuild -license
+   43  brew install eclipse
+   44  xcode
+   45  java -v
+   46  java -v
+   47  brew install jdk
+   48  java -v
+   49  java -version
+   50  javac -version
+   51  java Range.java 
+   52  java Range.java 
+   53  javac Range.java 
+   54  javac Range.java 
+   55  java Range
+   56  javac Range.java 
+   57  javac Range.java 
+   58  javac Range.java 
+   59  javac Range.java 
+   60  javac Range.java 
+   61  javac Range.java 
+   62  javac Range.java 
+   63  javac Range.java 
+   64  javac Range.java 
+   65  javac Range.java 
+   66  javac Range.java 
+   67  javac Range.java 
+   68  javac Range.java 
+   69  javac Range.java 
+   70  java Range
+   71  java Range
+   72  javac Range.java 
+   73  java Range
+   74  javac Range.java 
+   75  java Range
+   76  javac Range.java 
+   77  java Range
+   78  javac Range.java 
+   79  java Range
+   80  brew install intellij
+   81  brew install Caskroom/cask/intellij-idea-ce
+   82  npm ls
+   83  npm
+   84  cd ..
+   85  mkdir myapp
+   86  cd myapp/
+   87  npm init
+   88  ls
+   89  npm install express --save
+   90  ls
+   91  vim
+   92  getit
+   93  gedit
+   94  sublime
+   95  touch package.json 
+   96  node server.js 
+   97  node server.js 
+   98  node server.js 
+   99  npm install body-parser --save
+  100  npm install cookie-parser --save
+  101  npm install multer --save
+  102  node server.js 
+  103  node server.js 
+  104  node server.js 
+  105  node server.js 
+  106  node server.js 
+  107  node server.js 
+  108  node server.js 
+  109  node server.js 
+  110  node server.js 
+  111  node server.js 
+  112  node server.js 
+  113  node server.js 
+  114  node server.js 
+  115  node server.js 
+  116  node server.js 
+  117  node server.js 
+  118  node server.js 
+  119  node server.js 
+  120  history > hello.txt
